@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario Web3 | Mi Portafolio</title>
+    <style>
+        /* Paleta de colores Dark Mode / Cyberpunk */
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --border-color: #30363d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Cabecera */
+        header {
+            text-align: center;
+            padding: 50px 20px 20px 20px;
+            background: linear-gradient(180deg, rgba(139,92,246,0.1) 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+            border: 1px solid var(--accent-purple);
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: var(--accent-purple);
+            color: white;
+            box-shadow: 0 0 10px var(--accent-purple);
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Buscador */
+        .search-container {
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 25px;
+            font-size: 1em;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: white;
+            border-radius: 30px;
+            outline: none;
+            transition: 0.3s;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Cuadrícula de Términos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        .term-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto de luz superior en las tarjetas */
+        .term-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .term-card:hover::before {
+            opacity: 1;
+        }
+
+        .term-title {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+
+        .term-title::before {
+            content: '>>';
+            color: var(--accent-blue);
+            margin-right: 10px;
+            font-family: monospace;
+        }
+
+        .term-def {
+            color: #8b949e;
+            font-size: 0.95em;
+        }
+
+        .term-def strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">< Volver al Portafolio</a>
+        <h1>Glosario Web3</h1>
+        <p style="color: var(--accent-blue); font-family: monospace;">[ Base de Datos Descentralizada de Conocimiento ]</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filtrarGlosario()" placeholder="Ej: Escribe 'Hash' o 'Nodo' para buscar...">
+    </div>
+
+    <div class="grid" id="glossaryGrid">
+        
+        <div class="term-card">
+            <h3 class="term-title">Blockchain</h3>
+            <p class="term-def">Tecnología de registro distribuido que permite la transferencia de datos de manera segura y transparente sin la necesidad de intermediarios[cite: 74].</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Descentralización</h3>
+            <p class="term-def">Distribución de funciones y autoridad lejos de una ubicación centralizada o un grupo único de control[cite: 158]. Esto elimina el riesgo de un único punto de fallo.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Hash</h3>
+            <p class="term-def">Función criptográfica que convierte una entrada de datos en una cadena de caracteres de longitud fija, independientemente del tamaño de la entrada[cite: 400]. Cualquier cambio en los datos altera completamente el resultado.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Libro Mayor Distribuido</h3>
+            <p class="term-def">Base de datos consensuada y replicada en múltiples nodos de una red Blockchain[cite: 271]. Se mantiene sincronizada y garantiza la integridad de los datos.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Mecanismos de Consenso</h3>
+            <p class="term-def">Procesos que permiten que todos los nodos de la red acuerden el estado actual de la cadena de bloques[cite: 477]. Los más comunes son la Prueba de Trabajo (PoW) y la Prueba de Participación (PoS).</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Nodos</h3>
+            <p class="term-def">Dispositivos que participan en la red y mantienen una copia del libro mayor[cite: 212]. Pueden ser nodos completos, ligeros, de minería o de validación.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Red P2P (Peer-to-Peer)</h3>
+            <p class="term-def">Red donde cada nodo actúa como un "peer" (igual) que se comunica directamente con otros nodos, compartiendo datos y recursos sin necesidad de un servidor central[cite: 237].</p>
+        </div>
+
+    </div>
+
+    <script>
+        function filtrarGlosario() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('term-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector('.term-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
