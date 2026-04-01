@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Web3 | Aprendiz de Blockchain</title>
+    <style>
+        /* Estilos generales con temática "Dark Mode / Web3" */
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --border-color: #30363d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Cabecera con efecto de brillo */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at 50% -20%, #1f2937, var(--bg-color));
+            border-bottom: 2px solid var(--accent-blue);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+        }
+
+        .subtitle {
+            color: var(--accent-purple);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        /* Tarjetas de Proyectos */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Etiquetas para tecnologías */
+        .tags {
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        /* Botón estilo Web3 (Conectar Wallet falso) */
+        .btn-connect {
+            background: transparent;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-connect:hover {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 15px var(--accent-blue);
+        }
+
+        /* Enlaces */
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Tu Nombre Aquí]</h1>
+        <p class="subtitle">> Entusiasta de Blockchain & Web3_</p>
+        <button class="btn-connect" onclick="alert('¡Próximamente implementaré Web3.js aquí!')">Conectar Wallet</button>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>Acerca de mí</h2>
+            <p>¡Hola! Soy un apasionado por la tecnología que actualmente se está adentrando en el mundo de la Blockchain. Mi objetivo es entender las bases de la descentralización, los contratos inteligentes y cómo esta tecnología puede cambiar el futuro.</p>
+            <p>Actualmente estoy estudiando: <strong>Fundamentos de Criptografía, Consenso de Redes y nociones básicas de Smart Contracts.</strong></p>
+        </section>
+
+        <section id="projects">
+            <h2>Mi Laboratorio (Proyectos)</h2>
+            <div class="project-grid">
+                
+                <div class="card">
+                    <h3>1. Glosario Web3</h3>
+                    <p>Una recopilación documentada de los términos más importantes del ecosistema blockchain (Nodos, Gas, Wallets, etc.) explicados de forma sencilla.</p>
+                    <div class="tags">
+                        <span class="tag">Investigación</span>
+                        <span class="tag">Fundamentos</span>
+                    </div>
+                    <p><br><a href="#">Ver en GitHub →</a></p>
+                </div>
+
+                <div class="card">
+                    <h3>2. Mi primer Smart Contract</h3>
+                    <p><i>(En progreso)</i> Desplegando un contrato básico de "Hola Mundo" en la red de prueba (Testnet) de Ethereum utilizando Solidity y Remix.</p>
+                    <div class="tags">
+                        <span class="tag">Solidity</span>
+                        <span class="tag">Ethereum Testnet</span>
+                    </div>
+                    <p><br><a href="#">Próximamente...</a></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Siempre dispuesto a conectar con otros entusiastas y desarrolladores.</p>
+            <ul>
+                <li><strong>GitHub:</strong> <a href="https://github.com/TU_USUARIO" target="_blank">github.com/TU_USUARIO</a></li>
+                <li><strong>Twitter:</strong> <a href="#" target="_blank">@TuUsuario</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>Construido bloque a bloque. © 2026</p>
+    </footer>
+
+</body>
+</html>
