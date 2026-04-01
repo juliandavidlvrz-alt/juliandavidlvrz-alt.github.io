@@ -159,44 +159,74 @@
     </header>
 
     <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filtrarGlosario()" placeholder="Ej: Escribe 'Hash' o 'Nodo' para buscar...">
+        <input type="text" id="searchInput" onkeyup="filtrarGlosario()" placeholder="Ej: Escribe 'Hash', 'Nonce' o 'PoW' para buscar...">
     </div>
 
     <div class="grid" id="glossaryGrid">
         
         <div class="term-card">
             <h3 class="term-title">Blockchain</h3>
-            <p class="term-def">Tecnología de registro distribuido que permite la transferencia de datos de manera segura y transparente sin la necesidad de intermediarios[cite: 74].</p>
+            <p class="term-def">Tecnología de registro distribuido que permite la transferencia de datos de manera segura y transparente sin la necesidad de intermediarios.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Contratos Inteligentes</h3>
+            <p class="term-def">Programas informáticos que utilizan firmas digitales para validar la ejecución automática de acuerdos una vez que se cumplen ciertas condiciones preestablecidas.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Criptografía de Clave Pública</h3>
+            <p class="term-def">Sistema de seguridad asimétrico que usa dos claves: una pública para recibir datos, y una privada para firmar y descifrar la información.</p>
         </div>
 
         <div class="term-card">
             <h3 class="term-title">Descentralización</h3>
-            <p class="term-def">Distribución de funciones y autoridad lejos de una ubicación centralizada o un grupo único de control[cite: 158]. Esto elimina el riesgo de un único punto de fallo.</p>
+            <p class="term-def">Distribución de funciones y autoridad lejos de un grupo único de control. Al distribuir el libro mayor entre múltiples nodos, se elimina el riesgo de un único punto de fallo.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Firma Digital</h3>
+            <p class="term-def">Secuencia cifrada generada mediante la clave privada del usuario. Verifica la identidad del emisor y la integridad del mensaje o transacción.</p>
         </div>
 
         <div class="term-card">
             <h3 class="term-title">Hash</h3>
-            <p class="term-def">Función criptográfica que convierte una entrada de datos en una cadena de caracteres de longitud fija, independientemente del tamaño de la entrada[cite: 400]. Cualquier cambio en los datos altera completamente el resultado.</p>
+            <p class="term-def">Función criptográfica que convierte una entrada de datos en una cadena de caracteres de longitud fija. Cualquier cambio en los datos originales resulta en un hash completamente diferente, asegurando la integridad.</p>
         </div>
 
         <div class="term-card">
             <h3 class="term-title">Libro Mayor Distribuido</h3>
-            <p class="term-def">Base de datos consensuada y replicada en múltiples nodos de una red Blockchain[cite: 271]. Se mantiene sincronizada y garantiza la integridad de los datos.</p>
+            <p class="term-def">Base de datos consensuada y replicada en múltiples nodos de una red. Se mantiene sincronizada de forma inmutable y transparente para todos los participantes.</p>
         </div>
 
         <div class="term-card">
-            <h3 class="term-title">Mecanismos de Consenso</h3>
-            <p class="term-def">Procesos que permiten que todos los nodos de la red acuerden el estado actual de la cadena de bloques[cite: 477]. Los más comunes son la Prueba de Trabajo (PoW) y la Prueba de Participación (PoS).</p>
+            <h3 class="term-title">Mecanismos de Consenso (PoW y PoS)</h3>
+            <p class="term-def">Procesos para acordar el estado de la cadena. <strong>PoW (Prueba de Trabajo):</strong> Los mineros compiten resolviendo problemas criptográficos. <strong>PoS (Prueba de Participación):</strong> Los validadores son seleccionados según la cantidad de criptomonedas que apuestan.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Minería de Datos</h3>
+            <p class="term-def">Proceso que implica la resolución de complejos problemas criptográficos para validar transacciones y agregar nuevos bloques a la cadena a cambio de recompensas.</p>
         </div>
 
         <div class="term-card">
             <h3 class="term-title">Nodos</h3>
-            <p class="term-def">Dispositivos que participan en la red y mantienen una copia del libro mayor[cite: 212]. Pueden ser nodos completos, ligeros, de minería o de validación.</p>
+            <p class="term-def">Dispositivos que participan en la red y mantienen una copia del libro mayor. Pueden ser nodos completos, ligeros, de minería o de validación.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Nonce</h3>
+            <p class="term-def">Un número utilizado una sola vez. Los mineros lo ajustan continuamente durante el proceso de minería hasta producir un hash que valide el bloque actual.</p>
+        </div>
+
+        <div class="term-card">
+            <h3 class="term-title">Raíz de Merkle (Merkle Root)</h3>
+            <p class="term-def">Un hash maestro que representa y resume todas las transacciones incluidas en un bloque. Se utiliza para verificar rápidamente la integridad de los datos sin revisar cada transacción individualmente.</p>
         </div>
 
         <div class="term-card">
             <h3 class="term-title">Red P2P (Peer-to-Peer)</h3>
-            <p class="term-def">Red donde cada nodo actúa como un "peer" (igual) que se comunica directamente con otros nodos, compartiendo datos y recursos sin necesidad de un servidor central[cite: 237].</p>
+            <p class="term-def">Red donde cada nodo actúa como un "peer" (igual) que se comunica directamente con otros nodos, compartiendo datos y recursos de forma descentralizada y sin servidores centrales.</p>
         </div>
 
     </div>
@@ -208,7 +238,9 @@
 
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].querySelector('.term-title').innerText.toLowerCase();
-                if (title.includes(input)) {
+                let def = cards[i].querySelector('.term-def').innerText.toLowerCase();
+                
+                if (title.includes(input) || def.includes(input)) {
                     cards[i].style.display = "";
                 } else {
                     cards[i].style.display = "none";
